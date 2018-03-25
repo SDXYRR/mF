@@ -1,0 +1,50 @@
+.container {
+    width: 500px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.list {
+    width: 500px;
+    padding: 0;
+}
+
+.list li {
+    float: left;
+    list-style: none;
+    width: 32.9%;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.clearfix {
+    content: '';
+    clear: both;
+}
+
+form {
+    display: flex;
+}
+
+form ul {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+form ul li {
+    list-style: none;
+    height: 60px;
+}
+
+.right span {
+    font-size: 12px;
+}

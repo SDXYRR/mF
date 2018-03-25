@@ -1,0 +1,109 @@
+<div class="container">
+    <h2>网易表单验证</h2>
+    <ul class="list clearfix">
+        <li>注册字母邮箱</li>
+        <li>注册手机号码邮箱</li>
+        <li>注册VIP邮箱</li>
+    </ul>
+    <form method="get" action="" #siteForm="ngForm" class="clearfix">
+        <ul>
+            <li>邮件地址</li>
+            <li>密码</li>
+            <li>确认密码</li>
+            <li>手机号码</li>
+            <li>验证码</li>
+            <li>短信验证码</li>
+        </ul>
+        <div class="right">
+            <div class="addr">
+                <div class="top">
+                    <input type="text" name="usrname" [(ngModel)]="ngName" #uName="ngModel" required="required" pattern="^[A-Za-z][a-zA-Z_]*$" minlength="6" maxlength="18">@
+                    <select name="" id="">
+                      <option value="163.com">163.com</option>
+                      <option value="126.com">126.com</option>
+                      <option value="yeah.net">yeah.net</option>
+                    </select>
+                </div>
+                <span *ngIf="uName.pristine">
+                    6~18个字符，可使用字母、数字、下划线，需以字母开头
+                </span>
+                <span *ngIf="uName.invalid">
+                    <span *ngIf="uName.errors.minlength">
+                       长度应为6~18个字符
+                    </span>
+                <span *ngIf="uName.errors.pattern">
+                            邮件地址必需以英文字母开头
+                        邮件地址需由字母、数字或下划线组成
+                        </span>
+                <span *ngIf="uName.dirty">
+                        用户名不能为空
+                    </span>
+                </span>
+                <span *ngIf="uName.valid">
+                    恭喜，该邮件地址可注册
+                </span>
+            </div>
+            <div class="psw">
+                <input type="password" name="pssw" required="required" minlength="6" maxlength="16" pattern="^[a-zA-Z]$" #psdd="ngModel" [(ngModel)]="psssd">
+                <span>
+                    6~16个字符，区分大小写
+                </span>
+            </div>
+            <div class="psw2">
+                <input type="password" name="pssd" required="required" #pdd="ngModel" [(ngModel)]="psd">
+                <span *ngIf="pdd.pristine">
+                    请再次填写密码
+                </span>
+                <span *ngIf="pdd.invalid&&pdd.dirty">
+                    <span *ngIf="pdd.value!=psdd.value">
+                            两次密码输入不一致
+                    </span>
+                </span>
+            </div>
+            <div class="tel">
+                <input type="text" name="tel" id="" #tel="ngModel" [(ngModel)]="telNum" pattern="^(139|138|137|136|135|134|178|170|188|187|183|182|159|158|157|152|150|147|1390|186|185|170|156|155|130|131|132|189|180|170|153|133|199|198|196|132288|1369222)\d{8}$">
+                <span *ngIf="tel.pristine">
+                    忘记密码时，可以通过该手机号码快速找回密码
+                </span>
+                <span *ngIf="tel.invalid">
+                        <span *ngIf="tel.errors.pattern">
+                            请输入正确的手机号码
+                        </span>
+                </span>
+                <span *ngIf="tel.valid">
+                    手机号码可用
+                </span>
+            </div>
+            <div class="comfire">
+                <div class="left">
+                    <input type="text" name="" id="">
+                    <span>
+                      请填写图片中的字符，不区分大小写
+                  </span>
+                    <button>免费获取验证码</button>
+                </div>
+                <div class="rigt">
+                    <img src="" alt="">
+                    <a href="javascript:void()">
+                      看不清楚?换张图片
+                    </a>
+                </div>
+            </div>
+            <div class="message">
+                <input type="text" name="" id="">
+                <span>
+                  请查收手机短信，并填写短信中的验证码
+                </span>
+                <div class="bottom">
+                    <input type="checkbox" name="" id="">
+                    <span>
+                    同意<a href="javascirpt:void()">"服务条款"</a>和<a href="javascirpt:void()">"隐私权相关政策"</a>
+                  </span>
+                </div>
+            </div>
+            <div class="last">
+                <input type="submit" name="" value="立即注册" [disabled]="!siteForm.form.valid">
+            </div>
+        </div>
+    </form>
+</div>
